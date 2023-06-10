@@ -4,7 +4,7 @@
  - Add Dto classes to receive info from HTTP requests & serve as response.
  - Add validation of requests 
  - Add documantation of EmoloyeeController.
- - Add serveral test function of service layer.
+ - Add serveral test functions of service layer.
  - Delete unnecessary setters of properties which has @Autowired annotation.
  - Use @Data at class level(Employee) instead of @Setter & @Getter on all properties.
  - refactoring: renaming some of variables & methods to improve Readability.
