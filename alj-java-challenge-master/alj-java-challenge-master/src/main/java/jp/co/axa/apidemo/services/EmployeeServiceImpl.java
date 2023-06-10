@@ -31,6 +31,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     public Employee getEmployeeById(Long employeeId) {
+        //employee id is auto-generated which cannot be negative
+        if (employeeId < 0) return null;
         Optional<Employee> employeeFoundByRepository =
                 employeeRepository.findById(employeeId);
         if (employeeFoundByRepository.isPresent()) {
@@ -59,6 +61,17 @@ public class EmployeeServiceImpl implements EmployeeService{
         employeeRepository.save(employeeToBeUpdate);
     }
 
+    /**
+     * Update employee if it exists.<br>
+     * If cannot find employee with id of employeeId, return NOT_FOUND message.
+     *
+     * @see UpdateEmployeeResult
+     * @param employeeId id of employee to be update
+     * @param employeeDto update information
+     * @return update result
+     * @since 2023/06/12
+     * @author JU XINGKONG
+     */
     @Override
     public UpdateEmployeeResult updateEmployee(
             Long employeeId ,EmployeeDto employeeDto) {
